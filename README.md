@@ -22,18 +22,8 @@ If you're not willing to run a random shell script, please see the [installation
 
 If you are a complete Docker newbie, you should follow the [series of tutorials](https://docs.docker.com/engine/getstarted/) now.
 
-### macOS
+#### Mac
 
-Download and install [Docker Community Edition](https://www.docker.com/community-edition). if you have Homebrew-Cask, just type `brew install --cask docker`. Or Download and install [Docker Toolbox](https://docs.docker.com/toolbox/overview/).  [Docker For Mac](https://docs.docker.com/docker-for-mac/) is nice, but it's not quite as finished as the VirtualBox install.  [See the comparison](https://docs.docker.com/docker-for-mac/docker-toolbox/).
-
-> **NOTE** Docker Toolbox is legacy. You should to use Docker Community Edition, See [Docker Toolbox](https://docs.docker.com/toolbox/overview/).
-
-Once you've installed Docker Community Edition, click the docker icon in Launchpad. Then start up a container:
-
-```sh
-docker run hello-world
-```
-
-That's it, you have a running Docker container.
-
-If you are a complete Docker newbie, you should probably follow the [series of tutorials](https://docs.docker.com/engine/getstarted/) now.
+1. Download docker desktop for mac from https://docs.docker.com/docker-for-mac/install/
+2. Double-click `Docker.dmg` to open the installer and drag it to the Applications folder.
+3. Double-click `Docker.app` in the Applications folder to start Docker.
