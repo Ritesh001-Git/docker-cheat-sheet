@@ -55,3 +55,8 @@ It supports for Windows 10 64-bit: Home, Pro, Enterprise, or Education, version 
 3. **Containerization** — The process of packaging an application and its dependencies into containers.
 4. **Registry** — A storage and distribution system for Docker images (e.g., Docker Hub, AWS ECR, GitHub Container Registry).
 5. **Repository** — A collection of related Docker images with different versions/tags.
+6. **Docker Engine** — The core component that builds and runs Docker images and containers.
+7. **Volume** — A method to persist data outside the container’s lifecycle.
+8. **Network** — Allows containers to communicate with each other or with external systems.
+9. **Tag** — A label for an image version (e.g., `latest`, `1.2.0`, etc.).
+10. **Dockerfile** — A script containing instructions on how to build a Docker image.
