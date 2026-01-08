@@ -1,5 +1,17 @@
 # Docker Cheat Sheet
 
+## What is Docker?
+
+Docker is a tool that lets you run applications inside lightweight, portable containers.  
+A container includes everything the application needs to run (code, libraries, dependencies, and runtime), so it works the same everywhere — on your laptop, server, or in the cloud.
+
+In short:
+- No “works on my machine” issues
+- Fast setup and consistent environments
+- Easy packaging and deployment
+
+Containers are isolated like virtual machines, but much lighter and faster because they share the host system’s kernel instead of emulating an entire operating system.
+
 ## Why Docker
 
 "Docker enables developers to build portable apps in any language, using any toolchain, that run consistently across diverse environments, from local workstations to cloud and data center servers.
