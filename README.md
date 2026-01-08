@@ -47,3 +47,11 @@ It supports for Windows 10 64-bit: Home, Pro, Enterprise, or Education, version 
 1. Download docker desktop for windows from https://docs.docker.com/docker-for-windows/install/
 2. Double-click `Docker Desktop Installer.exe` to run the installer.
 3. Make sure `Enable Hyper-V Windows Features` option is selected
+
+## Key Docker Concepts (Glossary)
+
+1. **Container** — A lightweight, isolated environment that runs an application and its dependencies.
+2. **Image** — A snapshot or template used to create containers. Images contain the app code, libraries, and configuration.
+3. **Containerization** — The process of packaging an application and its dependencies into containers.
+4. **Registry** — A storage and distribution system for Docker images (e.g., Docker Hub, AWS ECR, GitHub Container Registry).
+5. **Repository** — A collection of related Docker images with different versions/tags.
