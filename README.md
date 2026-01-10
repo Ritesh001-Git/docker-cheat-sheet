@@ -69,3 +69,6 @@ Docker Registry is a service that stores your docker images. It could be hosted 
 - Quay,
 - Google Container Registry,
 - AWS Container Registry
+
+#### Repository:
+A Docker Repository is a collection of related images with same name which have different tags. These tags are an alphanumeric identifiers(like 1.0 or latest) attached to images within a repository.
