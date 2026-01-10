@@ -90,3 +90,12 @@ Example:
 2. docker login
 ```
 
+#### Logout
+Logout from a registry
+```js
+> docker logout [SERVER]
+
+Example:
+
+docker logout localhost:8080 // Logout from a registry on your localhost
+```
