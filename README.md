@@ -64,3 +64,8 @@ It supports for Windows 10 64-bit: Home, Pro, Enterprise, or Education, version 
 ### Registries and Repositories
 #### Registry:
 Docker Registry is a service that stores your docker images. It could be hosted by a third party, as public or private registry. Some of the examples are,
+
+- Docker Hub,
+- Quay,
+- Google Container Registry,
+- AWS Container Registry
