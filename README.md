@@ -62,3 +62,5 @@ It supports for Windows 10 64-bit: Home, Pro, Enterprise, or Education, version 
 10. **Dockerfile** — A script containing instructions on how to build a Docker image.
 
 ### Registries and Repositories
+#### Registry:
+Docker Registry is a service that stores your docker images. It could be hosted by a third party, as public or private registry. Some of the examples are,
