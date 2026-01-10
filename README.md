@@ -60,3 +60,5 @@ It supports for Windows 10 64-bit: Home, Pro, Enterprise, or Education, version 
 8. **Network** — Allows containers to communicate with each other or with external systems.
 9. **Tag** — A label for an image version (e.g., `latest`, `1.2.0`, etc.).
 10. **Dockerfile** — A script containing instructions on how to build a Docker image.
+
+### Registries and Repositories
