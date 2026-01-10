@@ -72,3 +72,5 @@ Docker Registry is a service that stores your docker images. It could be hosted 
 
 #### Repository:
 A Docker Repository is a collection of related images with same name which have different tags. These tags are an alphanumeric identifiers(like 1.0 or latest) attached to images within a repository.
+For example, if you want to pull golang image using `docker pull golang:latest` command, it will download the image tagged latest within the `golang` repository from the Docker Hub registry. The tags appeared on dockerhub as below,
+
