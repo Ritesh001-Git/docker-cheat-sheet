@@ -99,3 +99,9 @@ Example:
 
 docker logout localhost:8080 // Logout from a registry on your localhost
 ```
+
+## Docker Commands
+
+### Get docker info
+
+#### General
