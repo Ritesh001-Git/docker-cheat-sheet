@@ -113,4 +113,14 @@ Command | Description
 `docker info --format '{{.DriverStatus}}'` | display 'DriverStatus' fragment from docker information
 `docker info --format '{{json .DriverStatus}}'` | display 'DriverStatus' fragment from docker information in JSON format
 
+### Manage Images
+
+Command | Description | Example
+--- | --- | ---
+`docker image ls` | shows all local images | 
+`docker image ls --filter 'reference=ubuntu:16.04'` | show images filtered by name and tag | 
+`docker image pull [image-name]` | pull specified image from registry | `docker image pull nginx:latest`
+`docker image rm [image-name]` | remove image for specified _image-name_ | `docker image rm nginx`
+`docker image rm [image-id]` | remove image for specified _image-id_ | `docker image rm d1a364dc548d`
+`docker image prune` | remove unused images | 
 
