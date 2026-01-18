@@ -151,3 +151,10 @@ Command | Description | Example
 `docker container run [image-name]` | run container based on specified image | `docker container run nginx`
 `docker container run --rm [image-name]` | run container based on specified image and immediately remove it once it stops | `docker container run --rm ubuntu`
 `docker container run --name fuzzy-box [image-name]` | assign name and run container based on specified image | `docker container run --name fuzzy-box nginx`
+
+#### Remove Container
+
+Command | Description | Example
+--- | --- | ---
+`docker container rm [container-name]` | remove specified container | `docker container rm fuzzy-box`
+`docker container rm $(docker container ls --filter "status=exited" --filter "ancestor=ubuntu" -q)` | remove all containers whose IDs are returned from the *$(...)* command substitution | 
