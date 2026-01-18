@@ -159,6 +159,17 @@ Command | Description | Example
 `docker container rm [container-name]` | remove specified container | `docker container rm web-container`
 `docker container rm $(docker container ls --filter "status=exited" --filter "ancestor=ubuntu" -q)` | remove all containers whose ids are returned from *'$(...)'* list | `docker container rm $(docker container ls --filter "status=exited" --filter "ancestor=ubuntu" -q)`
 
+#### Container Lifecycle Management
+
+Command | Description | Example
+--- | --- | ---
+`docker container start [container-name]` | start a stopped container | `docker container start web-container`
+`docker container stop [container-name]` | stop a running container gracefully | `docker container stop web-container`
+`docker container restart [container-name]` | restart a container | `docker container restart web-container`
+`docker container pause [container-name]` | pause all processes inside a container | `docker container pause web-container`
+`docker container unpause [container-name]` | resume a paused container | `docker container unpause web-container`
+`docker container kill [container-name]` | force stop a container immediately | `docker container kill web-container`
+
 ### Manage Volumes
 
 #### Display Volume Information
