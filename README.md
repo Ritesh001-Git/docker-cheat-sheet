@@ -170,6 +170,16 @@ Command | Description | Example
 `docker container unpause [container-name]` | resume a paused container | `docker container unpause web-container`
 `docker container kill [container-name]` | force stop a container immediately | `docker container kill web-container`
 
+#### Container Interaction & Debugging
+
+Command | Description | Example
+--- | --- | ---
+`docker container logs [container-name]` | fetch logs of a container | `docker container logs web-container`
+`docker container logs -f [container-name]` | stream container logs in real time | `docker container logs -f web-container`
+`docker container exec -it [container-name] [command]` | run a command inside a running container interactively | `docker container exec -it web-container /bin/bash`
+`docker container attach [container-name]` | attach local terminal to a running container | `docker container attach web-container`
+`docker container top [container-name]` | display running processes inside container | `docker container top web-container`
+`docker container stats` | display live resource usage statistics of containers | `docker container stats`
 ### Manage Volumes
 
 #### Display Volume Information
