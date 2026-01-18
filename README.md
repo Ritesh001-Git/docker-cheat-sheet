@@ -133,3 +133,14 @@ Command | Description | Example
 `docker search [image-name] --filter "stars=1000"` | find only images having specified *[image-name]* and 1000 or more stars | `docker search nginx --filter "stars=1000"`
 
 ### Manage Containers
+
+#### Display Container Information
+
+Command | Description | Example
+--- | --- | ---
+`docker container ls` | show all running containers | 
+`docker container ls -a` | show all containers regardless of state | 
+`docker container ls --filter "status=exited" --filter "ancestor=ubuntu"` | show all container instances of the ubuntu image that have exited | 
+`docker container inspect [container-name]` | display detailed information about specified container | `docker container inspect web-container`
+`docker container inspect --format '{{.NetworkSettings.IPAddress}}' [container-name]` | display container IP address using specified format | `docker container inspect --format '{{.NetworkSettings.IPAddress}}' web-container`
+`docker container inspect --format '{{json .NetworkSettings}}' [container-name]` | display container network settings in JSON format | `docker container inspect --format '{{json .NetworkSettings}}' web-container`
