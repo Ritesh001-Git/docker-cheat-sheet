@@ -144,3 +144,10 @@ Command | Description | Example
 `docker container inspect [container-name]` | display detailed information about specified container | `docker container inspect web-container`
 `docker container inspect --format '{{.NetworkSettings.IPAddress}}' [container-name]` | display container IP address using specified format | `docker container inspect --format '{{.NetworkSettings.IPAddress}}' web-container`
 `docker container inspect --format '{{json .NetworkSettings}}' [container-name]` | display container network settings in JSON format | `docker container inspect --format '{{json .NetworkSettings}}' web-container`
+
+#### Run Container
+Command | Description | Example
+--- | --- | ---
+`docker container run [image-name]` | run container based on specified image | `docker container run nginx`
+`docker container run --rm [image-name]` | run container based on specified image and immediately remove it once it stops | `docker container run --rm ubuntu`
+`docker container run --name fuzzy-box [image-name]` | assign name and run container based on specified image | `docker container run --name fuzzy-box nginx`
