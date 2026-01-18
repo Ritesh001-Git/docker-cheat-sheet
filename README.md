@@ -189,6 +189,15 @@ Command | Description | Example
 `docker container update [options] [container-name]` | update container resource limits | `docker container update --memory 512m web-container`
 `docker container prune` | remove all stopped containers | `docker container prune`
 
+#### Container Creation (Advanced Usage)
+
+Command | Description | Example
+--- | --- | ---
+`docker container create [image-name]` | create a container without starting it | `docker container create nginx`
+`docker container run -d [image-name]` | run container in detached mode | `docker container run -d nginx`
+`docker container run -it [image-name]` | run container in interactive terminal mode | `docker container run -it ubuntu /bin/bash`
+`docker container run -p [host-port]:[container-port] [image-name]` | map host port to container port | `docker container run -p 8080:80 nginx`
+`docker container run -v [volume-name]:[path] [image-name]` | mount volume into container | `docker container run -v my-volume:/data ubuntu`
 ### Manage Volumes
 
 #### Display Volume Information
