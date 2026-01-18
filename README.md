@@ -158,3 +158,5 @@ Command | Description | Example
 --- | --- | ---
 `docker container rm [container-name]` | remove specified container | `docker container rm web-container`
 `docker container rm $(docker container ls --filter "status=exited" --filter "ancestor=ubuntu" -q)` | remove all containers whose ids are returned from *'$(...)'* list | `docker container rm $(docker container ls --filter "status=exited" --filter "ancestor=ubuntu" -q)`
+
+### Manage Volumes
