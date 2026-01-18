@@ -160,3 +160,18 @@ Command | Description | Example
 `docker container rm $(docker container ls --filter "status=exited" --filter "ancestor=ubuntu" -q)` | remove all containers whose ids are returned from *'$(...)'* list | `docker container rm $(docker container ls --filter "status=exited" --filter "ancestor=ubuntu" -q)`
 
 ### Manage Volumes
+
+#### Display Volume Information
+
+Command | Description | Example
+--- | --- | ---
+`docker volume ls` | show all volumes | `docker volume ls`
+`docker volume ls --filter "dangling=true"` | display all volumes not referenced by any containers | `docker volume ls --filter "dangling=true"`
+`docker volume inspect [volume-name]` | display detailed information on *[volume-name]* | `docker volume inspect my-volume`
+
+#### Remove Volumes
+
+Command | Description | Example
+--- | --- | ---
+`docker volume rm [volume-name]` | remove specified volume | `docker volume rm my-volume`
+`docker volume rm $(docker volume ls --filter "dangling=true" -q)` | remove all volumes having an id equal to any of the ids returned from *'$(...)'* list | `docker volume rm $(docker volume ls --filter "dangling=true" -q)`
