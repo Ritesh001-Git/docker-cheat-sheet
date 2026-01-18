@@ -131,3 +131,5 @@ Command | Description | Example
 `docker search [OPTIONS] TERM` | search for an image in registry | `docker search golang`
 `docker search [image-name] --filter "is-official=true"` | find only official images having *[image-name]* | `docker search nginx --filter "is-official=true"`
 `docker search [image-name] --filter "stars=1000"` | find only images having specified *[image-name]* and 1000 or more stars | `docker search nginx --filter "stars=1000"`
+
+### Manage Containers
