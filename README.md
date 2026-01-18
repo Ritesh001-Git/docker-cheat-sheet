@@ -105,11 +105,5 @@ docker logout localhost:8080 // Logout from a registry on your localhost
 ### Get docker info
 
 #### General
-Command | Description | Example
---- | --- | ---
-`docker version` | provides full description of docker version | `docker version`
-`docker -v` | provides a short description of docker version | `docker -v`
-`docker info` | display system wide information | `docker info`
-`docker info --format '{{.DriverStatus}}'` | display 'DriverStatus' fragment from docker information | `docker info --format '{{.DriverStatus}}'`
-`docker info --format '{{json .DriverStatus}}'` | display 'DriverStatus' fragment from docker information in JSON format | `docker info --format '{{json .DriverStatus}}'`
+Command | Description --- | --- docker version | provides full description of docker version docker -v | provides a short description of docker version docker info | display system wide information docker info --format '{{.DriverStatus}}' | display 'DriverStatus' fragment from docker information docker info --format '{{json .DriverStatus}}' | display 'DriverStatus' fragment from docker information in JSON format
 
