@@ -180,6 +180,15 @@ Command | Description | Example
 `docker container attach [container-name]` | attach local terminal to a running container | `docker container attach web-container`
 `docker container top [container-name]` | display running processes inside container | `docker container top web-container`
 `docker container stats` | display live resource usage statistics of containers | `docker container stats`
+
+#### Container Metadata & Maintenance
+
+Command | Description | Example
+--- | --- | ---
+`docker container rename [old-name] [new-name]` | rename a container | `docker container rename web-container app-container`
+`docker container update [options] [container-name]` | update container resource limits | `docker container update --memory 512m web-container`
+`docker container prune` | remove all stopped containers | `docker container prune`
+
 ### Manage Volumes
 
 #### Display Volume Information
