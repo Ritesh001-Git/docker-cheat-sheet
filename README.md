@@ -124,3 +124,9 @@ Command | Description | Example
 `docker image rm [image-id]` | remove image for specified _image-id_ | `docker image rm d1a364dc548d`
 `docker image prune` | remove unused images | `docker image prune`
 
+### Search Images
+
+Command | Description | Example
+--- | --- | ---
+`docker search [image-name] --filter "is-official=true"` | find only official images having *[image-name]* | `docker search nginx --filter "is-official=true"`
+`docker search [image-name] --filter "stars=1000"` | find only images having specified *[image-name]* and 1000 or more stars | `docker search nginx --filter "stars=1000"`
