@@ -138,9 +138,9 @@ Command | Description | Example
 
 Command | Description | Example
 --- | --- | ---
-`docker container ls` | show all running containers | 
-`docker container ls -a` | show all containers regardless of state | 
-`docker container ls --filter "status=exited" --filter "ancestor=ubuntu"` | show all container instances of the ubuntu image that have exited | 
+`docker container ls` | show all running containers | `docker container ls`
+`docker container ls -a` | show all containers regardless of state | `docker container ls -a`
+`docker container ls --filter "status=exited" --filter "ancestor=ubuntu"` | show all container instances of the ubuntu image that have exited | `docker container ls --filter "status=exited" --filter "ancestor=ubuntu"`
 `docker container inspect [container-name]` | display detailed information about specified container | `docker container inspect web-container`
 `docker container inspect --format '{{.NetworkSettings.IPAddress}}' [container-name]` | display container IP address using specified format | `docker container inspect --format '{{.NetworkSettings.IPAddress}}' web-container`
 `docker container inspect --format '{{json .NetworkSettings}}' [container-name]` | display container network settings in JSON format | `docker container inspect --format '{{json .NetworkSettings}}' web-container`
