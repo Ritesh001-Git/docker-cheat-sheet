@@ -273,3 +273,12 @@ Command | Description | Example
 `docker container run --network [network-name] [image-name]` | run container attached to a specific network | `docker container run --network my-network nginx`
 `docker container run --network host [image-name]` | run container using host network stack | `docker container run --network host nginx`
 `docker container run --network none [image-name]` | run container with no network access | `docker container run --network none ubuntu`
+
+#### Network Drivers
+
+Command | Description | Example
+--- | --- | ---
+`docker network create --driver bridge [network-name]` | create bridge network (default for single host) | `docker network create --driver bridge bridge-net`
+`docker network create --driver host [network-name]` | create host network (Linux only) | `docker network create --driver host host-net`
+`docker network create --driver overlay [network-name]` | create overlay network (Swarm mode) | `docker network create --driver overlay overlay-net`
+`docker network create --driver macvlan [network-name]` | create macvlan network for direct LAN access | `docker network create --driver macvlan macvlan-net`
