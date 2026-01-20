@@ -215,4 +215,16 @@ Command | Description | Example
 `docker volume rm [volume-name]` | remove specified volume | `docker volume rm my-volume`
 `docker volume rm $(docker volume ls --filter "dangling=true" -q)` | remove all volumes having an id equal to any of the ids returned from *'$(...)'* list | `docker volume rm $(docker volume ls --filter "dangling=true" -q)`
 
-### Docker Network Management
+### Networks
+
+#### Docker Network Management
+
+Command | Description | Example
+--- | --- | ---
+`docker network ls` | list all Docker networks | `docker network ls`
+`docker network inspect [network-name]` | display detailed information about a network | `docker network inspect bridge`
+`docker network create [network-name]` | create a custom Docker network | `docker network create my-network`
+`docker network create --driver bridge [network-name]` | create a bridge network explicitly | `docker network create --driver bridge app-network`
+`docker network create --subnet [CIDR] [network-name]` | create network with a specific subnet | `docker network create --subnet 172.18.0.0/16 custom-net`
+`docker network rm [network-name]` | remove a Docker network | `docker network rm my-network`
+`docker network prune` | remove all unused networks | `docker network prune`
