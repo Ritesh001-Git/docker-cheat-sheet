@@ -258,3 +258,18 @@ Command | Description | Example
 `docker network create --subnet [CIDR] [network-name]` | create network with a specific subnet | `docker network create --subnet 172.18.0.0/16 custom-net`
 `docker network rm [network-name]` | remove a Docker network | `docker network rm my-network`
 `docker network prune` | remove all unused networks | `docker network prune`
+
+#### Container–Network Association
+
+Command | Description | Example
+--- | --- | ---
+`docker network connect [network-name] [container-name]` | connect a running container to a network | `docker network connect my-network web-container`
+`docker network disconnect [network-name] [container-name]` | disconnect a container from a network | `docker network disconnect my-network web-container`
+
+#### Network Usage with Containers
+
+Command | Description | Example
+--- | --- | ---
+`docker container run --network [network-name] [image-name]` | run container attached to a specific network | `docker container run --network my-network nginx`
+`docker container run --network host [image-name]` | run container using host network stack | `docker container run --network host nginx`
+`docker container run --network none [image-name]` | run container with no network access | `docker container run --network none ubuntu`
