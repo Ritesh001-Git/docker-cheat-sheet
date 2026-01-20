@@ -314,3 +314,8 @@ Command | Description | Example
 `docker volume ls -qf dangling=true | xargs -r docker volume rm` | safely remove dangling volumes using xargs | `docker volume ls -qf dangling=true | xargs -r docker volume rm`
 
 ### Network Cleanup
+Command | Description | Example
+--- | --- | ---
+`docker network ls` | list all Docker networks | `docker network ls`
+`docker network ls | grep "bridge"` | list bridge networks | `docker network ls | grep "bridge"`
+`docker network rm $(docker network ls | grep "bridge" | awk '/ / { print $1 }')` | remove bridge networks | `docker network rm $(docker network ls | grep "bridge" | awk '/ / { print $1 }')`
