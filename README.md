@@ -301,3 +301,10 @@ Command | Description | Example
 `docker rmi $(docker images | grep "none" | awk '/ / { print $3 }')` | remove images with `<none>` tag | `docker rmi $(docker images | grep "none" | awk '/ / { print $3 }')`
 
 ### Container Cleanup
+Command | Description | Example
+--- | --- | ---
+`docker ps` | list running containers | `docker ps`
+`docker ps -a` | list all containers | `docker ps -a`
+`docker rm $(docker ps -qa --no-trunc --filter "status=exited")` | remove all stopped containers | `docker rm $(docker ps -qa --no-trunc --filter "status=exited")`
+
+### Volume Cleanup
