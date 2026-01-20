@@ -308,3 +308,9 @@ Command | Description | Example
 `docker rm $(docker ps -qa --no-trunc --filter "status=exited")` | remove all stopped containers | `docker rm $(docker ps -qa --no-trunc --filter "status=exited")`
 
 ### Volume Cleanup
+Command | Description | Example
+--- | --- | ---
+`docker volume rm $(docker volume ls -qf dangling=true)` | remove all dangling volumes | `docker volume rm $(docker volume ls -qf dangling=true)`
+`docker volume ls -qf dangling=true | xargs -r docker volume rm` | safely remove dangling volumes using xargs | `docker volume ls -qf dangling=true | xargs -r docker volume rm`
+
+### Network Cleanup
