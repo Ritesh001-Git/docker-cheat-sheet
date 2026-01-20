@@ -293,3 +293,11 @@ Command | Description | Example
 `docker system prune` | remove all unused containers, networks, images, and build cache | `docker system prune`
 
 #### Image Cleanup
+Command | Description | Example
+--- | --- | ---
+`docker images` | list all local Docker images | `docker images`
+`docker rmi $(docker images --filter "dangling=true" -q --no-trunc)` | remove all dangling images | `docker rmi $(docker images --filter "dangling=true" -q --no-trunc)`
+`docker images | grep "none"` | list images with no repository or tag | `docker images | grep "none"`
+`docker rmi $(docker images | grep "none" | awk '/ / { print $3 }')` | remove images with `<none>` tag | `docker rmi $(docker images | grep "none" | awk '/ / { print $3 }')`
+
+### Container Cleanup
