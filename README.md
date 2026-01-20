@@ -285,3 +285,11 @@ Command | Description | Example
 
 ### Cleanup Commands
 You may need to clean up unused Docker resources such as containers, images, volumes, and networks to free disk space and keep the Docker environment tidy.
+
+#### System Cleanup
+
+Command | Description | Example
+--- | --- | ---
+`docker system prune` | remove all unused containers, networks, images, and build cache | `docker system prune`
+
+#### Image Cleanup
