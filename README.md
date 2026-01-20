@@ -114,6 +114,7 @@ Command | Description
 `docker info --format '{{json .DriverStatus}}'` | display 'DriverStatus' fragment from docker information in JSON format
 
 ### Manage Images
+Docker images are read-only templates used to create containers. An image contains the application code, runtime, libraries, environment variables, and configuration files. Images ensure consistency and portability across development, testing, and production environments.
 
 Command | Description | Example
 --- | --- | ---
