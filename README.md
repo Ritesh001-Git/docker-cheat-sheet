@@ -282,3 +282,6 @@ Command | Description | Example
 `docker network create --driver host [network-name]` | create host network (Linux only) | `docker network create --driver host host-net`
 `docker network create --driver overlay [network-name]` | create overlay network (Swarm mode) | `docker network create --driver overlay overlay-net`
 `docker network create --driver macvlan [network-name]` | create macvlan network for direct LAN access | `docker network create --driver macvlan macvlan-net`
+
+### Cleanup Commands
+You may need to clean up unused Docker resources such as containers, images, volumes, and networks to free disk space and keep the Docker environment tidy.
