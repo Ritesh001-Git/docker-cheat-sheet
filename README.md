@@ -286,36 +286,41 @@ Command | Description | Example
 ### Cleanup Commands
 You may need to clean up unused Docker resources such as containers, images, volumes, and networks to free disk space and keep the Docker environment tidy.
 
-#### System Cleanup
+#### Remove all unused resources
 
-Command | Description | Example
---- | --- | ---
-`docker system prune` | remove all unused containers, networks, images, and build cache | `docker system prune`
+```cmd
+docker system prune
+```
 
-#### Image Cleanup
-Command | Description | Example
---- | --- | ---
-`docker images` | list all local Docker images | `docker images`
-`docker rmi $(docker images --filter "dangling=true" -q --no-trunc)` | remove all dangling images | `docker rmi $(docker images --filter "dangling=true" -q --no-trunc)`
-`docker images | grep "none"` | list images with no repository or tag | `docker images | grep "none"`
-`docker rmi $(docker images | grep "none" | awk '/ / { print $3 }')` | remove images with `<none>` tag | `docker rmi $(docker images | grep "none" | awk '/ / { print $3 }')`
+#### Images
 
-### Container Cleanup
-Command | Description | Example
---- | --- | ---
-`docker ps` | list running containers | `docker ps`
-`docker ps -a` | list all containers | `docker ps -a`
-`docker rm $(docker ps -qa --no-trunc --filter "status=exited")` | remove all stopped containers | `docker rm $(docker ps -qa --no-trunc --filter "status=exited")`
+```cmd
+$ docker images
+$ docker rmi $(docker images --filter "dangling=true" -q --no-trunc)
 
-### Volume Cleanup
-Command | Description | Example
---- | --- | ---
-`docker volume rm $(docker volume ls -qf dangling=true)` | remove all dangling volumes | `docker volume rm $(docker volume ls -qf dangling=true)`
-`docker volume ls -qf dangling=true | xargs -r docker volume rm` | safely remove dangling volumes using xargs | `docker volume ls -qf dangling=true | xargs -r docker volume rm`
+$ docker images | grep "none"
+$ docker rmi $(docker images | grep "none" | awk '/ / { print $3 }')
+```
 
-### Network Cleanup
-Command | Description | Example
---- | --- | ---
-`docker network ls` | list all Docker networks | `docker network ls`
-`docker network ls | grep "bridge"` | list bridge networks | `docker network ls | grep "bridge"`
-`docker network rm $(docker network ls | grep "bridge" | awk '/ / { print $1 }')` | remove bridge networks | `docker network rm $(docker network ls | grep "bridge" | awk '/ / { print $1 }')`
+#### Containers
+
+```cmd
+$ docker ps
+$ docker ps -a
+$ docker rm $(docker ps -qa --no-trunc --filter "status=exited")
+```
+
+#### Volumes
+
+```cmd
+$ docker volume rm $(docker volume ls -qf dangling=true)
+$ docker volume ls -qf dangling=true | xargs -r docker volume rm
+```
+
+#### Networks
+
+```cmd
+$ docker network ls
+$ docker network ls | grep "bridge"
+$ docker network rm $(docker network ls | grep "bridge" | awk '/ / { print $1 }')
+```
