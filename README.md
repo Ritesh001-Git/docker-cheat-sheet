@@ -214,3 +214,5 @@ Command | Description | Example
 --- | --- | ---
 `docker volume rm [volume-name]` | remove specified volume | `docker volume rm my-volume`
 `docker volume rm $(docker volume ls --filter "dangling=true" -q)` | remove all volumes having an id equal to any of the ids returned from *'$(...)'* list | `docker volume rm $(docker volume ls --filter "dangling=true" -q)`
+
+### Docker Network Management
