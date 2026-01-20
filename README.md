@@ -133,6 +133,7 @@ Command | Description | Example
 `docker search [image-name] --filter "stars=1000"` | find only images having specified *[image-name]* and 1000 or more stars | `docker search nginx --filter "stars=1000"`
 
 ### Manage Containers
+Docker is a containerization platform that allows applications to be packaged with all their dependencies and run consistently across different environments. The following core components are fundamental to working with Docker in practice.
 
 #### Display Container Information
 
