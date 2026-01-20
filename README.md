@@ -202,6 +202,7 @@ Command | Description | Example
 `docker container run -p [host-port]:[container-port] [image-name]` | map host port to container port | `docker container run -p 8080:80 nginx`
 `docker container run -v [volume-name]:[path] [image-name]` | mount volume into container | `docker container run -v my-volume:/data ubuntu`
 ### Manage Volumes
+Docker volumes provide persistent storage for containers. They are used to store data outside the container’s writable layer so that data is not lost when a container is stopped or removed. Volumes are commonly used for databases, logs, and shared data between containers.
 
 #### Display Volume Information
 
@@ -219,6 +220,32 @@ Command | Description | Example
 `docker volume rm $(docker volume ls --filter "dangling=true" -q)` | remove all volumes having an id equal to any of the ids returned from *'$(...)'* list | `docker volume rm $(docker volume ls --filter "dangling=true" -q)`
 
 ### Networks
+Docker networks enable communication between containers and external systems. They provide isolation, service discovery, and secure connectivity. Different network drivers (bridge, host, overlay, etc.) support various deployment scenarios, from single-host applications to multi-host clusters.
+### Docker Network Types
+
+Docker provides different network drivers to control how containers communicate with each other and with external systems. Each network type serves a specific use case.
+
+#### Bridge Network
+The bridge network is the default network driver for Docker containers. Containers connected to a bridge network can communicate with each other using container names. It provides isolation from the host network and is commonly used for single-host applications and microservices.
+
+**Use case:** Local development, container-to-container communication on the same host.
+
+#### Host Network
+In the host network mode, the container shares the host machine’s network stack directly. This removes network isolation and avoids port mapping, resulting in better network performance.
+
+**Use case:** High-performance networking scenarios where minimal latency is required.
+
+#### None Network
+The none network disables all networking for the container. Containers have no external network access and cannot communicate with other containers.
+
+**Use case:** Security-sensitive workloads or batch jobs that do not require network connectivity.
+
+#### Overlay Network
+Overlay networks allow containers running on different Docker hosts to communicate with each other. This network type is used with Docker Swarm and supports multi-host container communication.
+
+**Use case:** Distributed applications and clustered environments.
+
+These network drivers allow Docker to support a wide range of application architectures, from standalone containers to distributed microservices.
 
 #### Docker Network Management
 
