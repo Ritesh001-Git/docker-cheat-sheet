@@ -274,7 +274,7 @@ Command | Description | Example
 `docker container run --network host [image-name]` | run container using host network stack | `docker container run --network host nginx`
 `docker container run --network none [image-name]` | run container with no network access | `docker container run --network none ubuntu`
 
-#### Network Drivers
+-->#### Network Drivers
 
 Command | Description | Example
 --- | --- | ---
