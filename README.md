@@ -48,6 +48,17 @@ It supports for Windows 10 64-bit: Home, Pro, Enterprise, or Education, version 
 2. Double-click `Docker Desktop Installer.exe` to run the installer.
 3. Make sure `Enable Hyper-V Windows Features` option is selected
 
+## 🏗️ Virtualization vs. Containerization
+| Feature | Virtualization (VMs) | Containerization (Docker) |  
+|---|---|---|  
+| Architecture | Hardware-level: Virtualizes the physical hardware. | OS-level: Virtualizes the Operating System. |  
+| OS Setup | Each VM has its own Full Guest OS (Windows, Linux, etc.). | All containers share the Host OS kernel. |  
+| Weight | Heavyweight: Usually GBs in size (due to the full OS). | Lightweight: Usually MBs in size (only app + dependencies). |  
+| Performance | Slower (requires booting an entire OS). | Near-native speed (starts in seconds/milliseconds). |  
+| Isolation | Strong: Fully isolated at the hardware level. | Process-level: Isolated but shares the same system "heart" (kernel). |  
+| Resource Usage | High (CPU/RAM is pre-allocated and often wasted). | Efficient (Uses only what the app needs from the host). |  
+| Portability | Hard to move (VM images are huge and hardware-dependent). | Highly portable (Build once, run anywhere with Docker). |
+
 ## Key Docker Concepts (Glossary)
 
 1. **Container** — A lightweight, isolated environment that runs an application and its dependencies.
