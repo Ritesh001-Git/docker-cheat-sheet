@@ -59,6 +59,9 @@ It supports for Windows 10 64-bit: Home, Pro, Enterprise, or Education, version 
 | Resource Usage | High (CPU/RAM is pre-allocated and often wasted). | Efficient (Uses only what the app needs from the host). |  
 | Portability | Hard to move (VM images are huge and hardware-dependent). | Highly portable (Build once, run anywhere with Docker). |
 
+<img width="3840" height="1332" alt="image" src="https://github.com/user-attachments/assets/456f682c-c9f0-49a9-b9fa-efeec11727c8" />
+
+
 ## Key Docker Concepts (Glossary)
 
 1. **Container** — A lightweight, isolated environment that runs an application and its dependencies.
