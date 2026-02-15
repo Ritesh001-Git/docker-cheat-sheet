@@ -61,19 +61,63 @@ It supports for Windows 10 64-bit: Home, Pro, Enterprise, or Education, version 
 
 <img width="3840" height="1332" alt="image" src="https://github.com/user-attachments/assets/456f682c-c9f0-49a9-b9fa-efeec11727c8" />
 
+## Docker Architecture (Simple Explanation)
 
-## Key Docker Concepts (Glossary)
+Docker uses a client–server architecture to manage containers. It consists of the Docker Client, Docker Engine, Docker Daemon, containerd, and Docker API. These components work together to create, run, and manage containers.
 
-1. **Container** — A lightweight, isolated environment that runs an application and its dependencies.
-2. **Image** — A snapshot or template used to create containers. Images contain the app code, libraries, and configuration.
-3. **Containerization** — The process of packaging an application and its dependencies into containers.
-4. **Registry** — A storage and distribution system for Docker images (e.g., Docker Hub, AWS ECR, GitHub Container Registry).
-5. **Repository** — A collection of related Docker images with different versions/tags.
-6. **Docker Engine** — The core component that builds and runs Docker images and containers.
-7. **Volume** — A method to persist data outside the container’s lifecycle.
-8. **Network** — Allows containers to communicate with each other or with external systems.
-9. **Tag** — A label for an image version (e.g., `latest`, `1.2.0`, etc.).
-10. **Dockerfile** — A script containing instructions on how to build a Docker image.
+### Docker Engine
+Docker Engine is the core runtime that builds and runs containers. It includes the Docker Daemon, containerd, and other components. All container-related operations happen inside the Docker Engine.
+
+### Docker Client (CLI)
+The Docker Client is the command-line interface (`docker` command) used by users. When you run a command like:
+docker run nginx
+
+the Docker Client sends this request to the Docker Engine using the Docker API.
+
+### Docker API
+The Docker API is the communication layer between the Docker Client and Docker Engine. The client sends commands through this API, and the engine executes them. Communication happens using REST API over Unix socket or network.
+
+Flow:
+User → Docker CLI → Docker API → Docker Engine
+
+### Docker Daemon (dockerd)
+The Docker Daemon (`dockerd`) is the main service running inside the Docker Engine. It listens for Docker API requests and manages containers, images, networks, and volumes.
+
+Responsibilities:
+- Creating and managing containers
+- Managing images
+- Managing networks and volumes
+- Communicating with containerd
+
+### containerd
+containerd is a low-level container runtime used by the Docker Daemon. It is responsible for actually creating, starting, stopping, and deleting containers.
+
+containerd handles:
+- Container execution
+- Image pulling and storage
+- Container lifecycle management
+
+### How Everything Works Together
+
+Step-by-step flow:
+
+1. User runs command:
+   docker run nginx
+
+2. Docker Client sends request to Docker API
+
+3. Docker API delivers request to Docker Daemon (dockerd)
+
+4. Docker Daemon instructs containerd to create and start the container
+
+5. containerd runs the container using OS kernel features
+
+6. Container starts running inside Docker Engine
+
+Summary flow:
+User → Docker CLI → Docker API → Docker Daemon → containerd → Container → OS Kernel
+
+This architecture allows Docker to efficiently manage containers using a layered and modular design.
 
 ### Registries and Repositories
 #### Registry:
