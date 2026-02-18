@@ -243,7 +243,6 @@ Command | Description | Example
 Command | Description | Example
 --- | --- | ---
 `docker container rename [old-name] [new-name]` | rename a container | `docker container rename web-container app-container`
-`docker container update [options] [container-name]` | update container resource limits | `docker container update --memory 512m web-container`
 `docker container prune` | remove all stopped containers | `docker container prune`
 
 #### Container Creation (Advanced Usage)
