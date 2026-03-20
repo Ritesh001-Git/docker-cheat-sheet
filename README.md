@@ -68,6 +68,7 @@ Docker uses a client–server architecture to manage containers. It consists of 
 ### Docker Engine
 Docker Engine is the core runtime that builds and runs containers. It includes the Docker Daemon, containerd, and other components. All container-related operations happen inside the Docker Engine.
 
+
 ### Docker Client (CLI)
 The Docker Client is the command-line interface (`docker` command) used by users. When you run a command like:
 docker run nginx
@@ -96,6 +97,9 @@ containerd handles:
 - Container execution
 - Image pulling and storage
 - Container lifecycle management
+
+### runC
+runC is a lightweight, portable container runtime. It includes all of the plumbing code used by Docker to interact with system features related to containers.
 
 ### How Everything Works Together
 
