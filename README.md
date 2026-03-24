@@ -523,3 +523,19 @@ services:
 - Each service = one container
 - All services run in the same network by default
 - You can start/stop everything with a single command
+
+### Docker Compose Commands
+
+Command | Description | Example
+--- | --- | ---
+`docker-compose up` | create and start all services | `docker-compose up`
+`docker-compose up -d` | start services in detached mode | `docker-compose up -d`
+`docker-compose down` | stop and remove containers, networks | `docker-compose down`
+`docker-compose build` | build or rebuild services | `docker-compose build`
+`docker-compose ps` | list running services | `docker-compose ps`
+`docker-compose logs` | view logs of services | `docker-compose logs`
+`docker-compose logs -f` | follow logs in real-time | `docker-compose logs -f`
+`docker-compose exec [service] [command]` | run command inside a service container | `docker-compose exec web bash`
+`docker-compose restart` | restart all services | `docker-compose restart`
+`docker-compose stop` | stop services without removing them | `docker-compose stop`
+`docker-compose start` | start existing stopped services | `docker-compose start`
