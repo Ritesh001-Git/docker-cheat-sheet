@@ -164,6 +164,26 @@ docker logout localhost:8080 // Logout from a registry on your localhost
 
 ## Docker Commands
 
+### Important Docker Flags
+
+Flag | Description | Use Case | Example
+--- | --- | --- | ---
+`-i` | keep STDIN open even if not attached | used for interactive input to container | `docker run -i ubuntu`
+`-t` | allocate a pseudo-TTY (terminal) | used to get terminal access inside container | `docker run -t ubuntu`
+`-it` | interactive + terminal | run container in interactive mode (most common) | `docker run -it ubuntu /bin/bash`
+`-d` | run container in detached mode (background) | run services like web servers in background | `docker run -d nginx`
+`-p` | map host port to container port | expose container service to outside world | `docker run -p 8080:80 nginx`
+`-P` | map all exposed ports to random host ports | quick testing without specifying ports | `docker run -P nginx`
+`--name` | assign custom name to container | easier container management | `docker run --name my-container nginx`
+`--rm` | automatically remove container after it stops | useful for temporary or test containers | `docker run --rm ubuntu`
+`-v` | mount volume or bind mount | persist data or share files | `docker run -v my-volume:/data ubuntu`
+`--network` | connect container to a specific network | control container communication | `docker run --network my-network nginx`
+`-e` | set environment variables | configure app settings inside container | `docker run -e ENV=prod nginx`
+`--restart` | define restart policy | auto-restart containers on failure | `docker run --restart always nginx`
+`--cpus` | limit CPU usage | control resource allocation | `docker run --cpus="1.5" nginx`
+`--memory` | limit memory usage | prevent container from overusing RAM | `docker run --memory="512m" nginx`
+`--entrypoint` | override default entrypoint | run custom command instead of default | `docker run --entrypoint /bin/bash nginx`
+
 ### Get docker info
 
 #### General
