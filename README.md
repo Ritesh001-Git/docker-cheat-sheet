@@ -489,3 +489,37 @@ CMD ["java", "-jar", "app.jar"]
 Build image: `docker build -t my-app .`
 
 Run container: `docker run -p 8080:8080 my-app`
+
+## Docker Compose
+
+Docker Compose is a tool used to define and run multi-container Docker applications.  
+Instead of running multiple `docker run` commands, you define all services (containers), networks, and volumes in a single `docker-compose.yml` file.
+
+### Why Use Docker Compose?
+- Manage multiple containers easily
+- Define services in one file
+- Automatic networking between containers
+- Simplifies development and testing
+
+### Example (docker-compose.yml)
+```
+version: "3.9"
+
+services:
+  web:
+    image: nginx
+    ports:
+      - "8080:80"
+
+  app:
+    image: node:18
+    working_dir: /app
+    volumes:
+      - .:/app
+    command: "node server.js"
+```
+### How it Works
+
+- Each service = one container
+- All services run in the same network by default
+- You can start/stop everything with a single command
