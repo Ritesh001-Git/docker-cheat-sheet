@@ -432,11 +432,9 @@ CMD ["java", "-jar", "target/my-app.jar"]
 
 ### Build and Run
 
-Build image:
-docker build -t my-app .
+Build image: `docker build -t my-app .`
 
-Run container:
-docker run -p 8080:8080 my-app
+Run container: `docker run -p 8080:8080 my-app`
 
 ### Key Difference from Multi-Stage
 
@@ -488,8 +486,6 @@ CMD ["java", "-jar", "app.jar"]
 
 ### Build and Run
 
-Build image:
-docker build -t my-app .
+Build image: `docker build -t my-app .`
 
-Run container:
-docker run -p 8080:8080 my-app
+Run container: `docker run -p 8080:8080 my-app`
