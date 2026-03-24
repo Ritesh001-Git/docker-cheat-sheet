@@ -400,3 +400,95 @@ $ docker network ls
 $ docker network ls | grep "bridge"
 $ docker network rm $(docker network ls | grep "bridge" | awk '/ / { print $1 }')
 ```
+## Normal Dockerfile (Single-Stage)
+
+A normal Dockerfile uses a single `FROM` statement and builds everything (code, dependencies, build tools) inside one image.  
+Unlike multi-stage builds, it does not separate build and runtime environments.
+
+### Characteristics
+- Simple and easy to write
+- Includes all dependencies and tools in one image
+- Larger image size
+- Less optimized for production
+
+### Example (Java Application)
+
+FROM maven:3.9.6-eclipse-temurin-17
+
+WORKDIR /app
+COPY . .
+
+RUN mvn clean package
+
+CMD ["java", "-jar", "target/my-app.jar"]
+
+### How it Works
+
+1. Uses Maven image (includes JDK + build tools)
+2. Copies project files into container
+3. Builds the application using Maven
+4. Runs the generated JAR file
+
+### Build and Run
+
+Build image:
+docker build -t my-app .
+
+Run container:
+docker run -p 8080:8080 my-app
+
+### Key Difference from Multi-Stage
+
+- Normal Dockerfile → build tools + app → larger image  
+- Multi-stage Dockerfile → only final app → smaller, optimized image
+
+### When to Use
+
+- Learning and development
+- Small projects
+- When optimization is not critical
+
+## Multi-Stage Dockerfile
+
+A multi-stage Dockerfile is used to reduce the final image size by separating the build environment from the runtime environment.  
+It allows you to use multiple `FROM` statements, where each stage performs a specific task.
+
+### Why use Multi-Stage Build?
+- Smaller final image size
+- No unnecessary build tools in production image
+- Better security and performance
+- Cleaner and optimized Docker images
+
+### Example (Java Application)
+
+# Stage 1: Build Stage
+FROM maven:3.9.6-eclipse-temurin-17 AS builder
+WORKDIR /app
+COPY . .
+RUN mvn clean package
+
+# Stage 2: Runtime Stage
+FROM eclipse-temurin:17-jdk-alpine
+WORKDIR /app
+COPY --from=builder /app/target/my-app.jar app.jar
+CMD ["java", "-jar", "app.jar"]
+
+### How it Works
+
+1. First stage (`builder`):
+   - Uses Maven image
+   - Compiles the application
+   - Generates JAR file
+
+2. Second stage:
+   - Uses lightweight Java runtime image
+   - Copies only the final JAR from builder stage
+   - Runs the application
+
+### Build and Run
+
+Build image:
+docker build -t my-app .
+
+Run container:
+docker run -p 8080:8080 my-app
