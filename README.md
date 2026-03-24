@@ -412,7 +412,7 @@ Unlike multi-stage builds, it does not separate build and runtime environments.
 - Less optimized for production
 
 ### Example (Java Application)
-
+```
 FROM maven:3.9.6-eclipse-temurin-17
 
 WORKDIR /app
@@ -421,6 +421,7 @@ COPY . .
 RUN mvn clean package
 
 CMD ["java", "-jar", "target/my-app.jar"]
+```
 
 ### How it Works
 
@@ -460,19 +461,19 @@ It allows you to use multiple `FROM` statements, where each stage performs a spe
 - Cleaner and optimized Docker images
 
 ### Example (Java Application)
-
-# Stage 1: Build Stage
+```
+### Stage 1: Build Stage
 FROM maven:3.9.6-eclipse-temurin-17 AS builder
 WORKDIR /app
 COPY . .
 RUN mvn clean package
 
-# Stage 2: Runtime Stage
+### Stage 2: Runtime Stage
 FROM eclipse-temurin:17-jdk-alpine
 WORKDIR /app
 COPY --from=builder /app/target/my-app.jar app.jar
 CMD ["java", "-jar", "app.jar"]
-
+```
 ### How it Works
 
 1. First stage (`builder`):
