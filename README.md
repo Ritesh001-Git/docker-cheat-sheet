@@ -359,6 +359,23 @@ Command | Description | Example
 `docker network create --driver overlay [network-name]` | create overlay network (Swarm mode) | `docker network create --driver overlay overlay-net`
 `docker network create --driver macvlan [network-name]` | create macvlan network for direct LAN access | `docker network create --driver macvlan macvlan-net`
 
+### Docker Exec (Work Inside Container)
+
+Command | Description | Use Case | Example
+--- | --- | --- | ---
+`docker exec -it <container> bash` | open interactive bash shell | most common way to access container | `docker exec -it web-container bash`
+`docker exec -it <container> sh` | open shell (for minimal images) | used when bash is not available | `docker exec -it web-container sh`
+`docker exec <container> ls -la /tmp` | run command inside container | check files inside container | `docker exec web-container ls -la /tmp`
+`docker exec <container> whoami` | check current user inside container | debugging permissions | `docker exec web-container whoami`
+`docker exec -d <container> <command>` | run command in background | run scripts without blocking terminal | `docker exec -d web-container python script.py`
+`docker exec -u root <container> <command>` | run command as specific user | perform admin/root tasks | `docker exec -u root web-container whoami`
+`docker exec -e VAR=value <container> <command>` | pass environment variable | test configs inside container | `docker exec -e DEBUG=true web-container printenv DEBUG`
+`docker exec -w <dir> <container> <command>` | set working directory | run command in specific path | `docker exec -w /app web-container ls`
+`docker exec -it <container> /bin/bash` | explicit bash path | safer for some images | `docker exec -it web-container /bin/bash`
+`docker exec -it <container> env` | list environment variables | debug env configs | `docker exec -it web-container env`
+`docker exec -it <container> ps aux` | view running processes | inspect container processes | `docker exec -it web-container ps aux`
+`docker exec -it <container> cat <file>` | read file inside container | check configs/logs | `docker exec -it web-container cat /etc/nginx/nginx.conf`
+
 ### Cleanup Commands
 You may need to clean up unused Docker resources such as containers, images, volumes, and networks to free disk space and keep the Docker environment tidy.
 
