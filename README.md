@@ -28,7 +28,7 @@ Virtualization is a technology that creates virtual versions of computer resourc
 - Each virtual machine is isolated from the others, meaning issues in one virtual machine won’t affect others. 
 = This allows you to optimize resource utilization, run multiple applications on a single machine, and improve scalability by easily adding or removing virtual machines as needed.
 
-What is Containerization?
+## What is Containerization?
 Containerization is a lightweight form of virtualization that allows you to run applications and their dependencies in isolated containers. Each container shares the same operating system kernel but is isolated from other containers, providing a portable and consistent runtime environment for applications.
 
 - Containers provide process isolation, ensuring that applications running in one container do not affect applications running in other containers.
