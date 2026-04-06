@@ -48,6 +48,23 @@ It supports for Windows 10 64-bit: Home, Pro, Enterprise, or Education, version 
 2. Double-click `Docker Desktop Installer.exe` to run the installer.
 3. Make sure `Enable Hyper-V Windows Features` option is selected
 
+## What is Virtualization?
+Virtualization is a technology that creates virtual versions of computer resources such as hardware platforms, operating systems, storage devices, and network resources. It’s like creating a software-based replica of a physical machine, allowing you to run multiple isolated environments on the same hardware or across a distributed system.
+
+- Imagine you have a powerful computer but you only use a small portion of its resources. 
+- Virtualization allows you to split that computer into several virtual machines (VMs), each acting like a separate computer with its operating system and applications. 
+- Each virtual machine is isolated from the others, meaning issues in one virtual machine won’t affect others. 
+= This allows you to optimize resource utilization, run multiple applications on a single machine, and improve scalability by easily adding or removing virtual machines as needed.
+
+What is Containerization?
+Containerization is a lightweight form of virtualization that allows you to run applications and their dependencies in isolated containers. Each container shares the same operating system kernel but is isolated from other containers, providing a portable and consistent runtime environment for applications.
+
+- Containers provide process isolation, ensuring that applications running in one container do not affect applications running in other containers.
+- Containers encapsulate all dependencies and configuration required to run an application, making them portable across different environments.
+- Containers are lightweight compared to traditional virtual machines (VMs) because they share the host operating system kernel.
+- Containers are designed to be scalable, allowing you to quickly scale up or down based on demand.
+- Containers enable developers to build, test, and deploy applications more efficiently, leading to faster release cycles and improved collaboration between development and operations teams.
+
 ## 🏗️ Virtualization vs. Containerization
 | Feature | Virtualization (VMs) | Containerization (Docker) |  
 |---|---|---|  
