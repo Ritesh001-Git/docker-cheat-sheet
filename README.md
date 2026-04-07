@@ -51,6 +51,8 @@ Containerization is a lightweight form of virtualization that allows you to run 
 
 ## Docker Architecture (Simple Explanation)
 
+<img width="3840" height="1332" alt="image" src="https://github.com/Ritesh001-Git/docker-cheat-sheet/blob/main/docker_arch.webp" />
+
 Docker uses a client–server architecture to manage containers. It consists of the Docker Client, Docker Engine, Docker Daemon, containerd, and Docker API. These components work together to create, run, and manage containers.
 
 ### Docker Engine
