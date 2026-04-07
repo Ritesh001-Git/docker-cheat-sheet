@@ -102,16 +102,12 @@ You can't actually delete a file from a read-only LowerDir. So, how does Docker 
 ⚙️ How It Works
 Step-by-step:
 
-File exists in lower layer: `lowerdir → /etc/config.txt`
-
-You delete it inside container: `rm /etc/config.txt`
-
-Docker does NOT delete the actual file
-Instead, it creates a whiteout file in upperdir: `upperdir → .wh.config.txt`
-
-During merge:
-OverlayFS sees `.wh.config.txt1
-It hides `/etc/config.txt` from lower layer
+- File exists in lower layer: `lowerdir → /etc/config.txt`
+- You delete it inside container: `rm /etc/config.txt`
+- Docker does NOT delete the actual file instead, it creates a whiteout file in upperdir: `upperdir → .wh.config.txt`
+- During merge:
+  OverlayFS sees `.wh.config.txt1
+  It hides `/etc/config.txt` from lower layer
 
 ## 3. Why This Architecture Matters
 ### Disk Efficiency
