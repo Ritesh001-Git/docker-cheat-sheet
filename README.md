@@ -208,7 +208,7 @@ Command | Description
 `docker info --format '{{json .DriverStatus}}'` | display 'DriverStatus' fragment from docker information in JSON format
 
 ### Manage Images
-Docker images are read-only templates used to create containers. An image contains the application code, runtime, libraries, environment variables, and configuration files. Images ensure consistency and portability across development, testing, and production environments.
+Docker images are the building blocks of containers. They are read-only templates that contain the application code, runtime, system tools, libraries, and other dependencies. Docker images are created from Dockerfiles, which are text files containing instructions for building the image layer by layer.
 
 Command | Description | Example
 --- | --- | ---
@@ -228,8 +228,7 @@ Command | Description | Example
 `docker search [image-name] --filter "stars=1000"` | find only images having specified *[image-name]* and 1000 or more stars | `docker search nginx --filter "stars=1000"`
 
 ### Manage Containers
-Docker containers are lightweight, isolated runtime instances created from images. A container runs an application in a controlled environment while sharing the host system’s kernel. Containers start quickly, use fewer resources than virtual machines, and are ideal for microservices and scalable deployments.
-
+Docker containers are runnable instances of Docker images. They encapsulate the application and its dependencies, providing an isolated environment for execution. Containers can be created, started, stopped, moved, and deleted using Docker commands.
 
 #### Display Container Information
 Command | Description | Example
@@ -308,7 +307,10 @@ Command | Description | Example
 `docker volume rm $(docker volume ls --filter "dangling=true" -q)` | remove all volumes having an id equal to any of the ids returned from *'$(...)'* list | `docker volume rm $(docker volume ls --filter "dangling=true" -q)`
 
 ### Networks
-Docker networks enable communication between containers and external systems. They provide isolation, service discovery, and secure connectivity. Different network drivers (bridge, host, overlay, etc.) support various deployment scenarios, from single-host applications to multi-host clusters.
+
+Docker provides networking capabilities for containers to communicate with each other and with external networks. It uses software-defined networks (SDN) to create virtual networks, enabling connectivity and isolation. Users can create custom networks, connect containers to networks, and define network policies using Docker commands or Docker Compose.
+
+They provide isolation, service discovery, and secure connectivity. Different network drivers (bridge, host, overlay, etc.) support various deployment scenarios, from single-host applications to multi-host clusters.
 ### Docker Network Types
 
 Docker provides different network drivers to control how containers communicate with each other and with external systems. Each network type serves a specific use case.
