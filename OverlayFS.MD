@@ -71,3 +71,30 @@ An internal directory used by the Linux kernel to prepare files before they are 
 📁 Example path: `/var/lib/docker/overlay2/<container-id>/work/`
 
 👉 You normally don’t interact with this
+
+## 2. How Operations Work Internally
+The true genius of OverlayFS is how it handles different file operations using a principle called Copy-on-Write (CoW).
+
+### Reading a File
+When a process inside the container tries to read a file:
+- Case A: The file exists in the UpperDir (it was modified). Docker serves that version immediately.
+- Case B: The file does not exist in the UpperDir. Docker looks down into the LowerDir layers. It finds the file and serves it.
+- Result: Extremely fast. There is almost zero performance hit for reading.
+
+### Modifying an Existing File (The "Copy-up" Operation)
+This is where the magic happens. Since the LowerDir is read-only, Docker cannot change it.
+
+- If you edit /etc/config.txt, OverlayFS searches the layers.
+- It finds the file in a LowerDir.
+- It performs a "Copy-up": It copies the entire file from the read-only layer into the UpperDir.
+- The version in the UpperDir is modified.
+- In the MergedDir, the new version "hides" the old version.
+
+Implication: This is why writing to a container is slower than writing to a volume. The first time you edit a large file, there is a delay while it is copied up.
+
+### Deleting a File (The "Whiteout")
+You can't actually delete a file from a read-only LowerDir. So, how does Docker make it "disappear"?
+
+- When you run rm file.txt, Docker creates a special character file called a Whiteout file in the UpperDir.
+- When OverlayFS generates the MergedDir view, it sees the Whiteout file and knows to hide the corresponding file from the LowerDir.
+- The file still exists in the image layers (consuming space), but it is invisible to the container.
