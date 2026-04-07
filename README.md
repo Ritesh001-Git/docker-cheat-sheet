@@ -105,7 +105,7 @@ The Docker Daemon (dockerd) is the primary listener.
 - Configuration: It defines the high-level settings: what network bridge to use, which volumes to mount, and what environment variables to set.
 
 #### 3. The Hand-off: containerd
-Once dockerd has the "blueprint" ready, it makes a gRPC call to containerd.
+Once dockerd has the "blueprint" ready, it makes a gRPC (a high-performance communication system) call to containerd.
 
 - Role: containerd is the "supervisor." It takes the high-level blueprint and prepares a Bundle (a directory containing the image's filesystem and a config.json file that follows the Open Container Initiative or OCI standard).
 
