@@ -98,3 +98,13 @@ You can't actually delete a file from a read-only LowerDir. So, how does Docker 
 - When you run rm file.txt, Docker creates a special character file called a Whiteout file in the UpperDir.
 - When OverlayFS generates the MergedDir view, it sees the Whiteout file and knows to hide the corresponding file from the LowerDir.
 - The file still exists in the image layers (consuming space), but it is invisible to the container.
+
+## 3. Why This Architecture Matters
+### Disk Efficiency
+If you run 100 containers from the same Ubuntu image, you don't have 100 copies of Ubuntu. You have one set of LowerDir layers (read-only) shared by all 100 containers. Each container only consumes disk space for the UpperDir (the specific changes it makes).
+
+### Fast Container Start
+Because starting a container only requires creating a new, empty UpperDir and WorkDir and telling the kernel to "mount" them over the existing image layers, it happens in milliseconds.
+
+### Security
+Since the LowerDir layers are immutable (read-only), a process inside the container cannot corrupt the underlying image. Any "damage" is contained within the UpperDir, which is destroyed when the container is deleted.
