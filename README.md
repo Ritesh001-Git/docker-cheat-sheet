@@ -2,8 +2,7 @@
 
 ## What is Docker?
 
-Docker is a tool that lets you run applications inside lightweight, portable containers.  
-A container includes everything the application needs to run (code, libraries, dependencies, and runtime), so it works the same everywhere — on your laptop, server, or in the cloud.
+Docker is an open-source platform that enables developers to package their applications and dependencies into lightweight containers. These containers encapsulate everything an application needs to run, including code, runtime, system tools, and libraries. Docker containers are portable, scalable, and consistent across different environments, making it easier to develop, deploy, and manage applications.
 
 In short:
 - No “works on my machine” issues
