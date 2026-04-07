@@ -99,6 +99,20 @@ You can't actually delete a file from a read-only LowerDir. So, how does Docker 
 - When OverlayFS generates the MergedDir view, it sees the Whiteout file and knows to hide the corresponding file from the LowerDir.
 - The file still exists in the image layers (consuming space), but it is invisible to the container.
 
+⚙️ How It Works
+Step-by-step:
+
+File exists in lower layer: `lowerdir → /etc/config.txt`
+
+You delete it inside container: `rm /etc/config.txt`
+
+Docker does NOT delete the actual file
+Instead, it creates a whiteout file in upperdir: `upperdir → .wh.config.txt`
+
+During merge:
+OverlayFS sees `.wh.config.txt1
+It hides `/etc/config.txt` from lower layer
+
 ## 3. Why This Architecture Matters
 ### Disk Efficiency
 If you run 100 containers from the same Ubuntu image, you don't have 100 copies of Ubuntu. You have one set of LowerDir layers (read-only) shared by all 100 containers. Each container only consumes disk space for the UpperDir (the specific changes it makes).
