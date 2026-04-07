@@ -56,27 +56,23 @@ Docker uses a client–server architecture to manage containers. It consists of 
 ### Docker Engine
 Docker Engine is the core runtime that builds and runs containers. It includes the Docker Daemon, containerd, and other components. All container-related operations happen inside the Docker Engine.
 
-
-### Docker Client (CLI)
-The Docker Client is the command-line interface (`docker` command) used by users. When you run a command like:
-docker run nginx
-
-the Docker Client sends this request to the Docker Engine using the Docker API.
-
-### Docker API
-The Docker API is the communication layer between the Docker Client and Docker Engine. The client sends commands through this API, and the engine executes them. Communication happens using REST API over Unix socket or network.
-
-Flow:
-User → Docker CLI → Docker API → Docker Engine
-
 ### Docker Daemon (dockerd)
-The Docker Daemon (`dockerd`) is the main service running inside the Docker Engine. It listens for Docker API requests and manages containers, images, networks, and volumes.
+The Docker daemon runs on the host machine and is responsible for managing Docker objects, such as images, containers, networks, and volumes.
 
 Responsibilities:
 - Creating and managing containers
 - Managing images
 - Managing networks and volumes
 - Communicating with containerd
+
+### Docker Client (CLI)
+The Docker client is a command-line interface (CLI) tool that allows users to interact with the Docker daemon through commands. Users can build, run, stop, and manage Docker containers using the Docker CLI.
+
+### Docker API
+The Docker API is the communication layer between the Docker Client and Docker Engine. The client sends commands through this API, and the engine executes them. Communication happens using REST API over Unix socket or network.
+
+Flow:
+User → Docker CLI → Docker API → Docker Engine
 
 ### containerd
 containerd is a low-level container runtime used by the Docker Daemon. It is responsible for actually creating, starting, stopping, and deleting containers.
