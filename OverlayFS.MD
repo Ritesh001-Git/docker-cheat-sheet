@@ -23,3 +23,38 @@ App code → COPY app.js
 ```
 
 📁 Example path: `/var/lib/docker/overlay2/<layer-id>/diff/`
+
+#### 2. UpperDir (The Diff): This is the Writable layer. When you modify a file inside a running container, the changes are stored here.
+
+- Created when container runs
+= This is the only writable layer
+= All runtime changes go here
+Example:
+```
+Creating files
+Modifying config (/etc/config.txt)
+Writing logs
+```
+
+📁 Example path: `/var/lib/docker/overlay2/<container-id>/diff/`
+
+👉 Important:
+
+Does NOT modify lower layers
+Stores only changes (delta)
+
+#### 3. MergedDir (The View): This is the "unified" view. When you are inside the container running ls, you are looking at the MergedDir. It shows the combined contents of the Lower and Upper layers.
+
+- Combines lower + upper layers
+- This is what the container actually sees
+
+👉 When you access: `/etc/config.txt`
+
+Docker checks:
+
+Upper layer → if exists, use it
+Else → fallback to lower layer
+
+📁 Example path: ``/var/lib/docker/overlay2/<container-id>/merged/`
+
+👉 This gives the illusion of a single filesystem
