@@ -7,8 +7,6 @@ OverlayFS is the magic that allows containers to be lightweight, fast, and disk-
 👉 In simple terms:
 Multiple read-only layers + one writable layer = one merged filesystem
 
-<img width="3840" height="1332" alt="image" src="https://github.com/Ritesh001-Git/docker-cheat-sheet/blob/main/overlay.jpeg" />
-
 ## 1. The Four-Layer Architecture
 OverlayFS "overlays" two or more directories on top of each other and presents them as a single, unified directory to the user. Internally, it identifies four specific roles:
 
@@ -73,6 +71,8 @@ An internal directory used by the Linux kernel to prepare files before they are 
 📁 Example path: `/var/lib/docker/overlay2/<container-id>/work/`
 
 👉 You normally don’t interact with this
+
+<img width="2840" height="1200" alt="image" src="https://github.com/Ritesh001-Git/docker-cheat-sheet/blob/main/overlay.jpeg" />
 
 ## 2. How Operations Work Internally
 The true genius of OverlayFS is how it handles different file operations using a principle called Copy-on-Write (CoW).
