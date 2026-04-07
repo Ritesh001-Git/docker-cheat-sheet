@@ -58,7 +58,7 @@ Docker checks:
 Upper layer → if exists, use it
 Else → fallback to lower layer
 
-📁 Example path: ``/var/lib/docker/overlay2/<container-id>/merged/`
+📁 Example path: `/var/lib/docker/overlay2/<container-id>/merged/`
 
 👉 This gives the illusion of a single filesystem
 
