@@ -8,6 +8,8 @@ OverlayFS is the magic that allows containers to be lightweight, fast, and disk-
 Multiple read-only layers + one writable layer = one merged filesystem
 
 https://github.com/Ritesh001-Git/docker-cheat-sheet/blob/main/overlay.jpeg
+<img width="3840" height="1332" alt="image" src="https://github.com/Ritesh001-Git/docker-cheat-sheet/blob/main/overlay.jpeg" />
+
 
 ## 1. The Four-Layer Architecture
 OverlayFS "overlays" two or more directories on top of each other and presents them as a single, unified directory to the user. Internally, it identifies four specific roles:
