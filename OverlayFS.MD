@@ -106,7 +106,8 @@ Step-by-step:
 - You delete it inside container: `rm /etc/config.txt`
 - Docker does NOT delete the actual file instead, it creates a whiteout file in upperdir: `upperdir → .wh.config.txt`
 - During merge:
-  OverlayFS sees `.wh.config.txt1
+  OverlayFS sees `.wh.config.txt1`
+
   It hides `/etc/config.txt` from lower layer
 
 ## 3. Why This Architecture Matters
