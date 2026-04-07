@@ -77,7 +77,7 @@ Flow:
 User → Docker CLI → Docker API → Docker Engine
 
 ### containerd
-containerd is a low-level container runtime used by the Docker Daemon. It is responsible for actually creating, starting, stopping, and deleting containers.
+This is the "low-level" runtime manager. It doesn't care about building images or user commands; it only cares about managing the lifecycle of a container (starting, stopping, pausing, and pulling images).
 
 containerd handles:
 - Container execution
