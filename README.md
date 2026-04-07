@@ -91,37 +91,36 @@ runC is a lightweight, portable container runtime. It includes all of the plumbi
 
 Here is the precise internal flow of a Docker command execution:
 
-1. The Entry Point: Docker CLI
+### 1. The Entry Point: Docker CLI
 When you type docker run nginx in your terminal:
 
 - The Docker CLI translates your command and flags into a RESTful API request.
 - It sends this request over a Unix Domain Socket (usually at /var/run/docker.sock) to the Docker Daemon.
 
-2. The Coordinator: dockerd
+### 2. The Coordinator: dockerd
 The Docker Daemon (dockerd) is the primary listener.
 
 - Authentication & Validation: It checks if you have permission to run the command and validates the syntax.
 - Image Discovery: It checks its local graph driver to see if the nginx image exists. If not, it communicates with a Registry (like Docker Hub) to pull the layers.
 - Configuration: It defines the high-level settings: what network bridge to use, which volumes to mount, and what environment variables to set.
 
-3. The Hand-off: containerd
+### 3. The Hand-off: containerd
 Once dockerd has the "blueprint" ready, it makes a gRPC call to containerd.
 
 - Role: containerd is the "supervisor." It takes the high-level blueprint and prepares a Bundle (a directory containing the image's filesystem and a config.json file that follows the Open Container Initiative or OCI standard).
 
-4. The Creation: containerd-shim
+### 4. The Creation: containerd-shim
 Before the container starts, containerd forks a small process called the shim.
 
 - The Purpose: The shim allows the container to keep running even if dockerd or containerd are restarted. It acts as a "babysitter" for the container, handling its standard I/O (logs) and reporting its exit status back to the system.
 
-5. The Executor: runc
+### 5. The Executor: runc
 The shim calls runc, which is a lightweight, short-lived CLI tool that follows the OCI specification.
 
 - The "Magic" Moment: runc talks directly to the Linux Kernel. It uses system calls like clone() to create a new process with its own Namespaces (for isolation) and Control Groups / cgroups (to limit CPU/RAM).
+- Exit: As soon as the container's primary process (e.g., the Nginx server) is started, runc exits.
 
-Exit: As soon as the container's primary process (e.g., the Nginx server) is started, runc exits.
-
-6. The Result: Execution
+### 6. The Result: Execution
 The process is now running inside its isolated "box." The containerd-shim remains active to monitor it, and dockerd provides the API status back to your terminal, showing you that the container is "Up."
 
 ### Registries and Repositories
