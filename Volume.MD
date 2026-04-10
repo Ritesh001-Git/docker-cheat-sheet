@@ -44,6 +44,7 @@ This starts a tiny container, mounts your "dead" container's volume, lists the f
 ### C. The "New Version" Swap
 This is the standard DevOps workflow. You delete the old version of your app container and start the new version using the exact same volume name. The new container "hooks" into the existing data instantly.
 
+
 5. Volume Drivers (The Cloud Connection)
 Internally, Docker uses a Volume Driver API.
 - By default, it uses the local driver.
