@@ -14,3 +14,13 @@ When you start a container with -v my_data:/app/data, Docker does not "copy" fil
 - The Kernel creates the container's isolated filesystem (MNT Namespace).
 - The Kernel then plumbs the host directory (/var/lib/docker/volumes/...) directly into the container's mount point (/app/data).
 - Result: The container thinks it's writing to its own disk, but the bits are actually traveling straight to the host’s physical drive, bypassing the slower OverlayFS (Copy-on-Write) layer. This is why volumes are significantly faster for databases like PostgreSQL or MySQL.
+
+Named Volumes
+- Command: `docker run -v my_db:/var/lib/mysql mysql`
+- Behavior: You give it a friendly name. It is easy to find, back up, and reuse. It stays there forever until you run docker volume rm.
+
+Anonymous Volumes
+- Command: `docker run -v /var/lib/mysql mysql` (No colon, just a path)
+- Internal Working: Docker generates a long, random 64-character ID as the name.
+- The Trap: If you delete the container with docker rm -v, the anonymous volume is deleted too. However, if you just run docker rm, the anonymous volume stays orphaned in your storage. Over time, these "zombie" volumes eat up GBs of space.
+= Fix: Run docker volume prune to clean these up.
