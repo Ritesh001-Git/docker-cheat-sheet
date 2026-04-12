@@ -14,7 +14,7 @@ Containers communicate differently depending on which network they are in:
 
 - Default Bridge: Containers can only talk to each other via IP Addresses. DNS resolution (using the container name) does not work here by default.
 
-- User-Defined Bridge: (Recommended) When you run docker network create my-net, Docker enables an embedded DNS server. Containers can talk to each other simply by using their names (e.g., ping database-service).
+- User-Defined Bridge: (Recommended) When you `run docker network create my-net`, Docker enables an embedded DNS server. Containers can talk to each other simply by using their names (e.g., ping database-service).
 
 ### How the packet travels:
 
