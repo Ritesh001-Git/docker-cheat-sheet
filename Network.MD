@@ -27,11 +27,16 @@ Containers communicate differently depending on which network they are in:
 Sometimes containers cannot talk to each other, even if they are on the same host. This happens because:
 
 - Different Networks: If container-A is on network-1 and container-B is on network-2, Docker provides pure isolation. They are on different virtual subnets with no route between them.
-- The "None" Network: If you run a container with --network none, it has no eth0. It is completely air-gapped from the network stack.
+- The "None" Network: If you run a container with `--network none`, it has no eth0. It is completely air-gapped from the network stack.
 
 ## 4. Achieving "Pure Isolation"
 If you want the most secure, isolated environment:
 
 - Do not use the default bridge: It allows all containers to see each other.
-- Create specific "Internal" networks: Use docker network create --internal my-secure-net. This allows containers in the network to talk to each other, but they cannot access the outside internet, and the internet cannot access them.
-- User Namespaces: Beyond networking, use --userns-remap to ensure that if a container is compromised, the attacker doesn't have root access to your host's network settings.
+- Create specific "Internal" networks: Use `docker network create --internal my-secure-net`. This allows containers in the network to talk to each other, but they cannot access the outside internet, and the internet cannot access them.
+- User Namespaces: Beyond networking, use `--userns-remap` to ensure that if a container is compromised, the attacker doesn't have root access to your host's network settings.
+
+### Summary Checklist
+- Need two containers to talk? Put them on the same user-defined bridge.
+- Need absolute security? Put sensitive containers on an --internal network.
+- Need speed (like a high-traffic DB)? Use --network host (but be careful, it exposes all ports to the host).
