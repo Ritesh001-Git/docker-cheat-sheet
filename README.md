@@ -123,7 +123,7 @@ The shim calls runc, which is a lightweight, short-lived CLI tool that follows t
 #### 6. The Result: Execution
 The process is now running inside its isolated "box." The containerd-shim remains active to monitor it, and dockerd provides the API status back to your terminal, showing you that the container is "Up."
 
-<img width="3840" height="1332" alt="image" src="https://github.com/Ritesh001-Git/docker-cheat-sheet/blob/main/docker_arch.webp" />
+<img width="3840" height="1332" alt="image" src="https://github.com/Ritesh001-Git/docker-cheat-sheet/blob/main/docker_workflow.png" />
 
 #### Docker Runtime Flow Summary
 
