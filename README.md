@@ -433,6 +433,9 @@ $ docker network ls
 $ docker network ls | grep "bridge"
 $ docker network rm $(docker network ls | grep "bridge" | awk '/ / { print $1 }')
 ```
+## Dockerfile
+A Dockerfile is a simple, extensionless text file containing a script of instructions used to build a Docker image.
+
 ## Normal Dockerfile (Single-Stage)
 
 A normal Dockerfile uses a single `FROM` statement and builds everything (code, dependencies, build tools) inside one image.  
