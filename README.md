@@ -466,6 +466,21 @@ CMD ["java", "-jar", "target/my-app.jar"]
 3. Builds the application using Maven
 4. Runs the generated JAR file
 
+### Nginx
+```
+# Use the official lightweight Nginx image
+FROM nginx:alpine
+
+# Copy your local static website files into the Nginx container
+COPY ./html /usr/share/nginx/html
+
+# Expose port 80 to allow external access
+EXPOSE 80
+
+# Start Nginx in the foreground so the container stays running
+CMD ["nginx", "-g", "daemon off;"]
+```
+
 ### Build and Run
 
 Build image: `docker build -t my-app .`
